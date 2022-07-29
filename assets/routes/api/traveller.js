@@ -3,8 +3,7 @@ const { Travellers, Trips, Locations } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-      const travellersData = await Travellers.findAll({
-      });
+      const travellersData = await Travellers.findAll();
       res.status(200).json(travellersData);
     } catch (err) {
       res.status(500).json(err);
@@ -38,7 +37,7 @@ router.post('/', async (req, res) => {
 });
 
 
-router.delete('/id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const travellersData = await Travellers.destroy({
         where: {
